@@ -3,22 +3,30 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ContactTemplateFormComponent} from './contact-template-form/contact-template-form.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {SimpleTemplateFormModule} from "./simple-template-form/simple-template-form.module";
 import {ContactReactiveFormModule} from "./contact-reactive-form/contact-reactive-form.module";
-import {MatToolbarModule} from "@angular/material/toolbar";
+import {ContactTemplateFormModule} from "./contact-template-form/contact-template-form.module";
+import {LandingPageModule} from "./landing-page/landing-page.module";
+import {NavBarModule} from "./nav-bar/nav-bar.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatToolbarModule,
     BrowserAnimationsModule,
-    ContactReactiveFormModule
+    AppRoutingModule,
+    LayoutModule,
+
+    // The Components
+    NavBarModule,
+    LandingPageModule,
+    SimpleTemplateFormModule,
+    ContactReactiveFormModule,
+    ContactTemplateFormModule,
   ],
   declarations: [
-    AppComponent,
-    ContactTemplateFormComponent
+    AppComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

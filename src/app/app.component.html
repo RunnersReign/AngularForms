@@ -1,21 +1,4 @@
-<mat-toolbar>
-  <span>Angular Forms Comparison</span>
-</mat-toolbar>
+<app-nav-bar>
+  <router-outlet></router-outlet>
+</app-nav-bar>
 
-<div>
-  <nav>
-    <ul>
-      <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Landing Page</a></li>
-      <li><a routerLink="/contact-reactive-form" routerLinkActive="active" ariaCurrentWhenActive="page">
-        Contact Input(Reactive Form)</a>
-      </li>
-      <li><a routerLink="/contact-template-form" routerLinkActive="active" ariaCurrentWhenActive="page">
-        Contact Input (Template Form)</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-
-<!-- The routed views render in the <router-outlet>-->
-<router-outlet></router-outlet>

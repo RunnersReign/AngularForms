@@ -27,6 +27,9 @@ import {ContactReactiveFormComponent} from "./contact-reactive-form.component";
   ],
   declarations: [
     ContactReactiveFormComponent
+  ],
+  exports: [
+    ContactReactiveFormComponent
   ]
 })
 export class ContactReactiveFormModule {
