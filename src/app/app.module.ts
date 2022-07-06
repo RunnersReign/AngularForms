@@ -10,6 +10,7 @@ import {ContactTemplateFormModule} from "./contact-template-form/contact-templat
 import {LandingPageModule} from "./landing-page/landing-page.module";
 import {NavBarModule} from "./nav-bar/nav-bar.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SimpleReactiveFormModule} from "./simple-reactive-form/simple-reactive-form.module";
 
 @NgModule({
   imports: [
@@ -22,11 +23,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     NavBarModule,
     LandingPageModule,
     SimpleTemplateFormModule,
+    SimpleReactiveFormModule,
     ContactReactiveFormModule,
     ContactTemplateFormModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,7 +8,6 @@ import {SimpleTemplateFormComponent} from "./simple-template-form.component";
   imports: [
     CommonModule,
 
-    // Form Dependencies
     FormsModule
   ],
   declarations: [

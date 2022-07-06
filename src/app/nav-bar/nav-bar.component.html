@@ -12,7 +12,7 @@
       <a mat-list-item routerLink="/simple-template-form" routerLinkActive="active">
         <div mat-line>Simple Template Form</div>
       </a>
-      <a mat-list-item routerLink="/" routerLinkActive="active">
+      <a mat-list-item routerLink="/simple-reactive-form" routerLinkActive="active">
         <div mat-line>Simple Reactive Form</div>
       </a>
       <a mat-list-item routerLink="/contact-reactive-form" routerLinkActive="active">
@@ -35,7 +35,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>angular-forms</span>
+      <!--      <span>angular-forms</span>-->
     </mat-toolbar>
 
     <ng-content></ng-content>

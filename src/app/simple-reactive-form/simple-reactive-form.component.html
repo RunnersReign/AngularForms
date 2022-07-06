@@ -1,0 +1,21 @@
+<div>
+  <label for="name">Name: </label>
+  <input id="name" name="name" type="text"
+         [formControl]="nameFormControl">
+
+  <div *ngIf="nameFormControl.invalid && (nameFormControl.dirty || nameFormControl.touched)" class="mat-error">
+    <div *ngIf="nameFormControl.hasError('required')">
+      Name is required.
+    </div>
+    <div *ngIf="nameFormControl.hasError('minlength')">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="nameFormControl.hasError('maxlength')">
+      Name must be under 10 characters long.
+    </div>
+  </div>
+</div>
+
+<div>
+  Entered Name is: {{name}}
+</div>

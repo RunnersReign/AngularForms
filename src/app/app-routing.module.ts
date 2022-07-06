@@ -4,10 +4,12 @@ import {ContactTemplateFormComponent} from "./contact-template-form/contact-temp
 import {ContactReactiveFormComponent} from "./contact-reactive-form/contact-reactive-form.component";
 import {LandingPageComponent} from "./landing-page/landing-page.component";
 import {SimpleTemplateFormComponent} from "./simple-template-form/simple-template-form.component";
+import {SimpleReactiveFormComponent} from "./simple-reactive-form/simple-reactive-form.component";
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
   {path: 'simple-template-form', component: SimpleTemplateFormComponent},
+  {path: 'simple-reactive-form', component: SimpleReactiveFormComponent},
   {path: 'contact-reactive-form', component: ContactReactiveFormComponent},
   {path: 'contact-template-form', component: ContactTemplateFormComponent}
 ];
