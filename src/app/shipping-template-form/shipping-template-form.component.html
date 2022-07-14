@@ -1,2 +1,131 @@
-<div class="title">Contact Template Form</div>
+<div class="title">{{!!shippingContactId ? 'Edit' : 'New'}} Shipping Contact (Template- Driven)</div>
 
+<form #shippingContactForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="shippingContactViewModel">
+  <mat-card class="shipping-card">
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Company" [(ngModel)]="shippingContactViewModel.company" name="company">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="First name"
+                   required
+                   [(ngModel)]="shippingContactViewModel.firstName" name="firstName" #firstName="ngModel">
+            <mat-error *ngIf="firstName.hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Last name"
+                   required
+                   [(ngModel)]="shippingContactViewModel.lastName" name="lastName" #lastName="ngModel">
+            <mat-error *ngIf="lastName.hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Address"
+                   required
+                   [(ngModel)]="shippingContactViewModel.addressLine1" name="addressLine1" #addressLine1="ngModel"/>
+            <mat-error *ngIf="addressLine1.hasError('required')">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="!hasUnitNumber">
+        <div class="col">
+          <button mat-button type="button" (click)="hasUnitNumber = !hasUnitNumber">
+            + Add C/O, Apt, Suite, Unit
+          </button>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="hasUnitNumber">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Address 2"
+                   [(ngModel)]="shippingContactViewModel.addressLine2" name="addressLine2"/>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="City"
+                   required
+                   [(ngModel)]="shippingContactViewModel.city" name="city" #city="ngModel"/>
+            <mat-error *ngIf="city.hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field class="w-100">
+            <mat-select placeholder="State"
+                        required
+                        [(ngModel)]="shippingContactViewModel.state" name="state" #state="ngModel">
+              <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="state.hasError('required')">
+              State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100">
+            <input matInput #postalCodeInput placeholder="Postal Code" type="number"
+                   required pattern="[0-9]{5}"
+                   [(ngModel)]="shippingContactViewModel.postalCode" name="postalCode" #postalCode="ngModel">
+            <mat-hint align="end">{{postalCodeInput.value.length}} / 5</mat-hint>
+            <mat-error *ngIf="postalCode.hasError('required')">
+              Postal Code is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="postalCode.hasError('pattern')">
+              Postal code must be 5 numbers
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-radio-group [(ngModel)]="shippingContactViewModel.shippingType" name="shippingType">
+            <mat-radio-button value="free">Free Shipping</mat-radio-button>
+            <mat-radio-button value="priority">Priority Shipping</mat-radio-button>
+            <mat-radio-button value="nextday">Next Day Shipping</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="shippingContactForm.invalid">Submit</button>
+      <button mat-raised-button color="accent" type="button" (click)="resetForm()">Reset</button>
+      <button mat-raised-button color="secondary" type="button" (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

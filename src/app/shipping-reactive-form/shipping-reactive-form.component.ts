@@ -16,6 +16,7 @@ import {Location} from "@angular/common";
 export class ShippingReactiveFormComponent implements OnInit {
   public states = Utils.STATES;
 
+  public shippingContactId: number | undefined;
   public shippingContact: ShippingContact | undefined;
   public shippingContactForm: FormGroup | undefined;
   public hasUnitNumber = false;
@@ -29,11 +30,11 @@ export class ShippingReactiveFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (!id) {
+      this.shippingContactId = params['id'];
+      if (!this.shippingContactId) {
         this.shippingContactForm = this.createFormGroup();
       } else {
-        this.shippingService.get(id).subscribe(shippingContact => {
+        this.shippingService.get(this.shippingContactId).subscribe(shippingContact => {
           this.shippingContact = shippingContact;
           this.shippingContactForm = this.createFormGroup(shippingContact);
           this.hasUnitNumber = !!shippingContact.addressLine2;
@@ -68,7 +69,10 @@ export class ShippingReactiveFormComponent implements OnInit {
 
   public resetForm(): void {
     if (this.shippingContact) {
+      // Reset form only resets to initial values ( not the patched values)
       this.shippingContactForm?.patchValue(this.shippingContact);
+    } else {
+      this.shippingContactForm?.reset();
     }
   }
 

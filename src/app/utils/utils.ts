@@ -1,5 +1,10 @@
 export class Utils {
 
+  /** Return a deep clone of any non-cyclical object */
+  public static deepClone<T extends object | null | undefined>(obj: T): T {
+    return obj ? JSON.parse(JSON.stringify(obj)) : null;
+  }
+
   public static readonly STATES = [
     {name: 'Alabama', abbreviation: 'AL'},
     {name: 'Alaska', abbreviation: 'AK'},
