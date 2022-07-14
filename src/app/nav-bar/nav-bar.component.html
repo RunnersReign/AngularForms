@@ -9,33 +9,37 @@
       <a mat-list-item routerLink="/" routerLinkActive="active">
         <div mat-line>Home</div>
       </a>
+      <hr>
       <a mat-list-item routerLink="/simple-template-form" routerLinkActive="active">
         <div mat-line>Simple Template Form</div>
       </a>
       <a mat-list-item routerLink="/simple-reactive-form" routerLinkActive="active">
         <div mat-line>Simple Reactive Form</div>
       </a>
+
+      <hr>
+
+      <a mat-list-item routerLink="/shipping-contacts" routerLinkActive="active">
+        <div mat-line>Shipping Contact List</div>
+      </a>
       <a mat-list-item routerLink="/contact-reactive-form" routerLinkActive="active">
-        <div mat-line>Contact Input(Reactive Form)</div>
+        <div mat-line>Shipping Form (Reactive Form)</div>
       </a>
       <a mat-list-item routerLink="/contact-template-form" routerLinkActive="active">
-        <div mat-line>Contact Input (Template Form)</div>
+        <div mat-line>Shipping Form (Template Form)</div>
       </a>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-
-    <mat-toolbar color="primary">
+    <mat-toolbar *ngIf="isHandset$ | async">
       <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <!--      <span>angular-forms</span>-->
     </mat-toolbar>
 
     <ng-content></ng-content>

@@ -7,7 +7,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatCardModule} from "@angular/material/card";
 import {ReactiveFormsModule} from "@angular/forms";
-import {ContactReactiveFormComponent} from "./contact-reactive-form.component";
+import {ShippingReactiveFormComponent} from "./shipping-reactive-form.component";
 
 
 @NgModule({
@@ -26,11 +26,11 @@ import {ContactReactiveFormComponent} from "./contact-reactive-form.component";
     ReactiveFormsModule
   ],
   declarations: [
-    ContactReactiveFormComponent
+    ShippingReactiveFormComponent
   ],
   exports: [
-    ContactReactiveFormComponent
+    ShippingReactiveFormComponent
   ]
 })
-export class ContactReactiveFormModule {
+export class ShippingReactiveFormModule {
 }

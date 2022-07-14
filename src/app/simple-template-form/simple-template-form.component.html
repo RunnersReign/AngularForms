@@ -1,22 +1,34 @@
-<div>
-  <label for="name">Name: </label>
-  <input id="name" name="name" type="text"
-         required minlength="4" maxlength="10"
-         [(ngModel)]="name" #nameModel="ngModel">
+<div class="title">Simple Template Form</div>
 
-  <div *ngIf="nameModel.invalid && (nameModel.dirty || nameModel.touched)" class="mat-error">
-    <div *ngIf="nameModel.errors?.['required']">
-      Name is required.
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <mat-form-field class="w-100 py-2">
+        <input matInput placeholder="Favorite Color" autocomplete="off"
+               [(ngModel)]="favoriteColor" #favoriteColorModel="ngModel"
+               required minlength="3" maxlength="10">
+
+        <mat-error *ngIf="favoriteColorModel.hasError('required')">
+          Favorite color is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="favoriteColorModel.hasError('minlength')">
+          Favorite color must be at least <strong>3</strong> characters long.
+        </mat-error>
+        <mat-error *ngIf="favoriteColorModel.hasError('maxlength')">
+          Favorite color must be less than <strong>10</strong> characters long.
+        </mat-error>
+      </mat-form-field>
     </div>
-    <div *ngIf="nameModel.errors?.['minlength']">
-      Name must be at least 4 characters long.
+
+    <hr class="mt-2">
+
+    <div class="row">
+      <div class="col">
+        Entered Favorite Color:  {{favoriteColor}}
+      </div>
     </div>
-    <div *ngIf="nameModel.errors?.['maxlength']">
-      Name must be under 10 characters long.
-    </div>
+
   </div>
 </div>
 
-<div>
-  Entered Name is: {{name}}
-</div>

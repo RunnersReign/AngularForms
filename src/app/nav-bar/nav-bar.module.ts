@@ -8,6 +8,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
 import {AppRoutingModule} from "../app-routing.module";
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -16,11 +17,13 @@ import {AppRoutingModule} from "../app-routing.module";
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
     MatButtonModule,
+    MatSortModule
   ],
   declarations: [NavBarComponent],
   exports: [NavBarComponent]

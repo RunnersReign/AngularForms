@@ -8,7 +8,7 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class SimpleReactiveFormComponent {
 
-  public nameFormControl = new FormControl(null,
+  public favoriteColorFormControl = new FormControl(null,
     Validators.compose([
       Validators.required,
       Validators.minLength(4),
@@ -19,9 +19,7 @@ export class SimpleReactiveFormComponent {
   constructor() {
   }
 
-
-  public get name() {
-    return this.nameFormControl.value;
+  public get favoriteColor() {
+    return this.favoriteColorFormControl.value;
   }
-
 }
