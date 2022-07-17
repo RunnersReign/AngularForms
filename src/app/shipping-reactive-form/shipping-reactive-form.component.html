@@ -1,6 +1,6 @@
 <div class="title">{{!!shippingContactId ? 'Edit' : 'New'}} Shipping Contact (Reactive)</div>
 
-<form [formGroup]="shippingContactForm" (ngSubmit)="onSubmit()" *ngIf="shippingContactForm">
+<form [formGroup]="shippingContactForm" (ngSubmit)="onSubmit()" *ngIf="shippingContactForm" autocomplete="off">
   <mat-card class="shipping-card">
     <mat-card-content>
       <div class="row">
