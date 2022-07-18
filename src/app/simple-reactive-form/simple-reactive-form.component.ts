@@ -11,7 +11,7 @@ export class SimpleReactiveFormComponent {
   public favoriteColorFormControl = new FormControl(null,
     Validators.compose([
       Validators.required,
-      Validators.minLength(4),
+      Validators.minLength(3),
       Validators.maxLength(10)
     ])
   );
