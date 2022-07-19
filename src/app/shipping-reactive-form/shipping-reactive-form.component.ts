@@ -44,8 +44,9 @@ export class ShippingReactiveFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (!this.shippingContactForm) {
-      return
+    if (!this.shippingContactForm?.valid) {
+      // if not valid do not perform submit.
+      return;
     }
 
     const shippingContact: ShippingContact = this.shippingContactForm.value;

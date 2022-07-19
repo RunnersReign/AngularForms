@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Utils} from "../utils/utils";
 import {ShippingContact} from "../shipping/shipping.model";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, NgForm} from "@angular/forms";
 import {ShippingService} from "../shipping/shipping.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from "@angular/common";
@@ -15,6 +15,9 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class ShippingTemplateFormComponent implements OnInit {
   public states = Utils.STATES;
+
+  @ViewChild(NgForm)
+  public shippingContactForm: NgForm | undefined;
 
   public shippingContactId: number | undefined;
   public shippingContact: ShippingContact | undefined;
@@ -44,6 +47,11 @@ export class ShippingTemplateFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    if (!this.shippingContactForm?.valid) {
+      // if not valid do not perform submit.
+      return;
+    }
+
     if (!this.shippingContactViewModel) {
       return
     }
@@ -86,7 +94,7 @@ export class ShippingTemplateFormComponent implements OnInit {
       city: '',
       state: '',
       postalCode: '',
-      shippingType: ''
+      shippingType: 'free'
     };
   }
 }
